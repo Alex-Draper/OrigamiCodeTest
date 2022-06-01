@@ -1,5 +1,7 @@
 # Forgetting Map
 
+Created in Java 13.
+
 The Forgetting Map is a Key Value pair structure that can store any type as both key and value.
 An association can be made with the Add() method and an association can be retrieved using the Find() method.
 
