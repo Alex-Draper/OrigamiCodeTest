@@ -32,7 +32,7 @@ Integer value = fm.find("Hello");
 ### Tie Break Situation
 If multiple least used associations are found then the oldest age of the association is used to break the tie. 
 
-e.g. map.add(key1, val1), map.add(key2, val2), map.add(key3, val3)
+e.g. map.add(key1, val1), map.add(key2, val2), map.add(key3, val3) <br>
 key1 association was added before key2 and key3 and so technically is the oldest association and will be the "winner" 
 of the tie-break.
 
