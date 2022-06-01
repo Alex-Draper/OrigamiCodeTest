@@ -3,6 +3,27 @@
 The Forgetting Map is a Key Value pair structure that can store any type as both key and value.
 An association can be made with the Add() method and an association can be retrieved using the Find() method.
 
+## Usage
+Simply import the ForgettingMap class and instantiate the class with the desired types.
+
+```
+ForgettingMap<String, Integer> fm = new ForgettingMap<>();
+```
+
+To use the class simply call the methods.
+
+Add:
+```
+ForgettingMap<String, Integer> fm = new ForgettingMap<>();
+fm.add("Hello", 5);
+```
+
+Find:
+```
+ForgettingMap<String, Integer> fm = new ForgettingMap<>();
+fm.add("Hello", 5);
+Integer value = fm.find("Hello");
+```
 
 ## Design Considerations
 
