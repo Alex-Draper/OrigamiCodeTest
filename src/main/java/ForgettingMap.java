@@ -29,6 +29,8 @@ public class ForgettingMap<K, V> {
         dataMap = new Hashtable<>();
         queueReferenceMap = new Hashtable<>();
         accessQueue = new PriorityQueue<>();
+
+        // Used as the tiebreaker
         insertionValue = new AtomicInteger(0);
 
 
@@ -41,12 +43,19 @@ public class ForgettingMap<K, V> {
      * @return The value that was added to the map
      */
     public synchronized V add(K key, V value) {
+
+
         if (dataMap.size() + 1 > maximumSize) {
+            // Reached capacity, delete one association
             QueueObject leastAccessItem = accessQueue.poll();
             queueReferenceMap.remove(leastAccessItem.getKey());
             dataMap.remove(leastAccessItem.getKey());
         }
+
+        // Even if the key is the same, we are treating this as "new" data.
         insertionValue.getAndIncrement();
+
+        // Insert the association and relevant mappings
         dataMap.put(key, value);
         QueueObject newItem = new QueueObject(key, 0, insertionValue.get());
         queueReferenceMap.put(key, newItem);
